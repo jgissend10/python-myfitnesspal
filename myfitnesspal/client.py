@@ -585,6 +585,18 @@ class Client(MFPBase):
 
         return ids
 
+    def get_measurement_id_options(self)
+       """ Returns list of measurement choices."""
+        # get the URL for the main check in page
+        document = self._get_document_for_url(
+            self._get_url_for_measurements()
+        )
+
+        # gather the IDs for all measurement types
+        measurement_ids = self._get_measurement_ids(document)
+        return measurement_ids
+
+
     def _get_notes(self, date):
         result = self._get_request_for_url(
             parse.urljoin(
